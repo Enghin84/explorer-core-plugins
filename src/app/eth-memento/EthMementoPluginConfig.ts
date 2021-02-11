@@ -3,6 +3,8 @@ interface IConfigData {
     ethSymbol?: string;
 
     apiBasePath: string;
+
+    INFURA_API_URL: string;
 }
 
 export class EthMementoPluginConfig {
@@ -67,10 +69,10 @@ export class EthMementoPluginConfig {
     }
 
     /**
-     * URL for account code api endpoint (replace %s with account address)
+     * URL for account details api endpoint (replace %s with account address)
      */
-    getAccountCodeApiUrlMask() {
-        return this.data.apiBasePath + "/account/%s/code";
+    getAccountDetails() {
+        return this.data.apiBasePath + "/account/%s";
     }
 
     /**
@@ -78,5 +80,9 @@ export class EthMementoPluginConfig {
      */
     getAccountBalanceApiUrlMask() {
         return this.data.apiBasePath + "/account/%s/balance";
+    }
+
+    getInfuraApiUrl() {
+        return this.data.INFURA_API_URL;
     }
 }

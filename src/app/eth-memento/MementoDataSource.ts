@@ -10,6 +10,7 @@ import { Search } from "app/eth-memento/data/search/Search";
 import { LastBlockWatcher } from "app/shared/data/watcher/LastBlockWatcher";
 import { AccountDetailsApi } from "app/eth-memento/data/account/AccountDetailsApi";
 import { AccountBalanceApi } from "app/eth-memento/data/account/AccountBalanceApi";
+import {ContractWeb3Api} from "app/eth-extended/data/contract/ContractWeb3Api";
 
 interface IMementoDataStores {
     blockStateStore: BlockStateStore;
@@ -27,7 +28,8 @@ interface IMementoDataStores {
 export class MementoDataSource implements IDataSource {
     constructor(
         private lastBlockWatcher: LastBlockWatcher,
-        public stores: IMementoDataStores
+        public stores: IMementoDataStores,
+        public contractWeb3Api: ContractWeb3Api
     ) {
 
     }

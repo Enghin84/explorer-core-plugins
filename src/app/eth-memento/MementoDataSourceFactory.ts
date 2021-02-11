@@ -13,9 +13,12 @@ import { SearchFactory } from "app/eth-memento/data/search/SearchFactory";
 import { LastBlockWatcher } from "app/shared/data/watcher/LastBlockWatcher";
 import { AccountBalanceApiFactory } from "app/eth-memento/data/account/AccountBalanceApiFactory";
 import { AccountDetailsApiFactory } from "app/eth-memento/data/account/AccountDetailsApiFactory";
+import {ContractWeb3ApiFactory} from "app/eth-extended/data/contract/ContractWeb3ApiFactory";
+import {EthExtendedPluginConfig} from "app/eth-extended/EthExtendedPluginConfig";
+import {Web3Factory} from "app/eth-extended/Web3Factory";
 
 export class MementoDataSourceFactory {
-    create(config: EthMementoPluginConfig, logger: ILogger) {
+    create(config: EthMementoPluginConfig, configExtended: EthExtendedPluginConfig, logger: ILogger) {
         let blockStateStore = new BlockStateStore();
 
         let latestBlockApi = new LatestBlockNumberApiFactory(config).create();
@@ -33,7 +36,10 @@ export class MementoDataSourceFactory {
         let accountBalanceApi = new AccountBalanceApiFactory(config).create();
         let accountDetailsApi = new AccountDetailsApiFactory(config).create();
 
-        let mementoDataSource = new MementoDataSource(
+        let web3Factory = new Web3Factory(configExtended);
+        let contractWeb3Api = (new ContractWeb3ApiFactory(web3Factory)).create();
+
+        return new MementoDataSource(
             lastBlockWatcher,
             {
                 blockStateStore,
@@ -46,9 +52,8 @@ export class MementoDataSourceFactory {
                 search,
                 accountBalanceApi,
                 accountDetailsApi
-            }
+            },
+            contractWeb3Api,
         );
-
-        return mementoDataSource;
     }
 }
