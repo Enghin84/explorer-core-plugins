@@ -6,10 +6,10 @@ import { SourceCodeAsyncRenderer } from "app/shared/component/sourceCode/SourceC
 import { AccountCodeRenderer } from "app/shared/component/sourceCode/AccountCodeRenderer";
 import { ContractAccordion } from "app/shared/component/sourceCode/ContractAccordion";
 import { AccordionItem } from "@alethio/ui/lib/control/accordion/AccordionItem";
-import {ReadContractSection} from "app/eth-extended/module/account/contract/component/ReadContractSection";
-import {ContractAbiFactory} from "app/eth-extended/data/contract/ContractAbiFactory";
-import {ContractWeb3Api} from "app/eth-extended/data/contract/ContractWeb3Api";
-import {IAccountDetails} from "app/eth-memento/data/account/IAccountDetails";
+import { ReadContractSection } from "app/eth-extended/module/account/contract/component/ReadContractSection";
+import { ContractAbiFactory } from "app/eth-extended/data/contract/ContractAbiFactory";
+import { ContractWeb3Api } from "app/eth-extended/data/contract/ContractWeb3Api";
+import { IAccountDetails } from "app/eth-memento/data/account/IAccountDetails";
 
 const ACCORDION_CONTENT_HEIGHT = 500;
 
@@ -29,8 +29,7 @@ export interface IContractDetailsProps {
 export class ContractDetails extends React.PureComponent<IContractDetailsProps> {
     render() {
         let { translation: tr, locale, logger, accountDetails } = this.props;
-        console.log(accountDetails);
-        let accountCode = accountDetails.accountCode ? accountDetails.accountCode : '';
+        let accountCode = accountDetails.accountCode ? accountDetails.accountCode : "";
         let sourceCodeAsyncRenderer = new SourceCodeAsyncRenderer(ACCORDION_CONTENT_HEIGHT);
         let contractAbiFactory = new ContractAbiFactory(logger);
         let contractAbi = contractAbiFactory.create(accountDetails.contractAbi);

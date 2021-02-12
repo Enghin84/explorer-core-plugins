@@ -53,7 +53,7 @@ export class MementoDataSourceFactory {
                 accountBalanceApi,
                 accountDetailsApi
             },
-            contractWeb3Api,
+            contractWeb3Api
         );
     }
 }
