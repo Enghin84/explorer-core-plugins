@@ -4,4 +4,5 @@ export interface IAccountDetails {
     address: string;
     type: AccountType;
     accountCode?: string;
+    contractAbi?: any;
 }

@@ -27,14 +27,16 @@ import { SearchAdapter } from "app/shared/adapter/SearchAdapter";
 import { AccountDetailsAdapter } from "app/shared/adapter/account/lite/AccountDetailsAdapter";
 import { AccountBalanceAdapter } from "app/shared/adapter/account/lite/AccountBalanceAdapter";
 import { accountDetailsModule } from "app/shared/module/account/lite/accountDetailsModule";
-import { accountContractModule } from "app/shared/module/account/lite/accountContractModule";
+import {EthExtendedPluginConfig} from "app/eth-extended/EthExtendedPluginConfig";
+import {accountContractModule} from "app/eth-memento/module/account/accountContractModule";
 
 const ethMementoPlugin: IPlugin = {
     init(configData: unknown, api, logger, publicPath) {
         __webpack_public_path__ = publicPath;
 
         let config = new EthMementoPluginConfig().fromJson(configData as any);
-        let dataSource = new MementoDataSourceFactory().create(config, logger);
+        let configExtended = new EthExtendedPluginConfig().fromJson(configData as any);
+        let dataSource = new MementoDataSourceFactory().create(config, configExtended, logger);
 
         let ethSymbol = config.getEthSymbol();
 
@@ -84,7 +86,7 @@ const ethMementoPlugin: IPlugin = {
         api.addDataAdapter("adapter://aleth.io/lite/account/details", new AccountDetailsAdapter(dataSource));
         api.addDataAdapter("adapter://aleth.io/lite/account/balance", new AccountBalanceAdapter(dataSource));
         api.addModuleDef("module://aleth.io/memento/account/details", accountDetailsModule(ethSymbol));
-        api.addModuleDef("module://aleth.io/memento/account/contract", accountContractModule);
+        api.addModuleDef("module://aleth.io/memento/account/contract", accountContractModule(dataSource));
         api.addModuleDef("module://aleth.io/memento/account/txs", accountTxsModule({
             store: dataSource.stores.txByAccountStore,
             ethSymbol

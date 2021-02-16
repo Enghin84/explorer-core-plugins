@@ -13,7 +13,7 @@ export class AccountDetailsApiFactory {
         return new AccountDetailsApi(
             new HttpApi(new HttpRequest()),
             new AccountDetailsReader(),
-            this.appConfig.getAccountCodeApiUrlMask()
+            this.appConfig.getAccountDetails()
         );
     }
 }

@@ -120,5 +120,10 @@
     "accountView.contract.sourceCode.copyCode.label": "Copy code",
     "accountView.contract.accountCode.label": "Account Code",
     "accountView.contract.accountCode.switch.byteCode.label": "Switch to byte code",
-    "accountView.contract.accountCode.switch.opCode.label": "Switch to op code"
+    "accountView.contract.accountCode.switch.opCode.label": "Switch to op code",
+    "accountView.contract.read.label": "Read",
+    "accountView.contract.read.reset.label": "Reset",
+    "accountView.contract.read.inputDefaultPlaceholder.label": "<input>",
+    "accountView.contract.read.query.label": "Query",
+    "accountView.contract.read.result.label": "Result"
 }
