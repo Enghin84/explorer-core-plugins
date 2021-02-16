@@ -1,8 +1,10 @@
 {
-  "name": "explorer-core-plugins",
-  "version": "1.0.2",
+  "name": "@abancu/explorer-core-plugins",
+  "version": "1.0.4",
   "private": false,
   "description": "Alethio Explorer core plugins",
+  "publisher": "abancu",
+  "pluginName": "@abancu/explorer-core-plugins",
   "main": "",
   "scripts": {
     "build": "npm run clean && npm run build-js-prod && npm run check-prod-bundle-size",
