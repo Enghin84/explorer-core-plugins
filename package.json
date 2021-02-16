@@ -1,26 +1,25 @@
 {
-  "name": "@alethio/explorer-core-plugins",
+  "name": "@abancu/explorer-core-plugins",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Alethio Explorer core plugins",
   "main": "",
   "scripts": {
     "build": "npm run clean && npm run build-js-prod && npm run check-prod-bundle-size",
     "build-dev": "npm run clean && npm run build-js-dev",
-    "check-prod-bundle-size": "bundlesize -f \"packages/*/dist/index.js\" -s 450kB -c none",
+    "check-prod-bundle-size": "bundlesize -f \"packages/*/dist/index.js\" -s 460kB -c none",
     "watch": "webpack-runner --config=./webpack.config.dev.js --watch",
     "clean": "rimraf ./packages/*/dist",
     "build-js-prod": "webpack --config=./webpack.config.prod.js",
     "build-js-dev": "webpack --config=./webpack.config.dev.js",
     "test": "mocha",
-    "test-coverage": "nyc npm test",
-    "prepublishOnly": "npm test && npm run build"
+    "test-coverage": "nyc npm test"
   },
-  "author": "Alexandru Ciuca <alexandru.ciuca@consensys.net>",
+  "author": "Bancu Stefan",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alethio/explorer-core-plugins"
+    "url": "https://github.com/Enghin84/explorer-core-plugins"
   },
   "devDependencies": {
     "@types/fontfaceobserver": "0.0.6",
