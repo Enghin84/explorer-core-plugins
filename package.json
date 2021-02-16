@@ -1,6 +1,6 @@
 {
-  "name": "@abancu/explorer-core-plugins",
-  "version": "1.0.1",
+  "name": "abancu/explorer-core-plugins",
+  "version": "1.0.2",
   "private": false,
   "description": "Alethio Explorer core plugins",
   "main": "",
