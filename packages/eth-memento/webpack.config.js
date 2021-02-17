@@ -54,7 +54,7 @@ function getConfig(isProduction) {
             filename: "index.js",
             chunkFilename: "[contentHash].bundle.js",
             pathinfo: !!isDebug,
-            library: "__aleth_io__ethMemento",
+            library: "__abancu__ethMemento",
             libraryTarget: "jsonp"
         },
         optimization: isDebug ? void 0 : {
