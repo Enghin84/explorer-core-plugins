@@ -50,7 +50,7 @@ export class ContractDetails extends React.PureComponent<IContractDetailsProps> 
             />
             <AccordionItem<IContractAccordionItemConfig>
                 label={tr.get("accountView.contract.read.label")}
-                disabled={!contractAbi}
+                disabled={contractAbi.getRawData().length === 0}
                 content={async () => {
                     return <ReadContractSection
                         abi={contractAbi}

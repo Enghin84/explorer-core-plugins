@@ -1,3 +1,7 @@
+# v2.0.6
+
+- Add `Read contract` section in Memento contract account page
+
 # v2.0.2
 
 - Add compatibility with @alethio/cms v1.0.0-beta.10

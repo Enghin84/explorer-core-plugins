@@ -2,7 +2,7 @@
     "name": "@abancu/explorer-plugin-eth-memento",
     "publisher": "abancu",
     "pluginName": "eth-memento",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "description": "Alethio Explorer core plugin that fetches data via Memento",
     "author": "Bancu Stefan",
     "license": "MIT",
